@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RandomWord.Views.RandomWordPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Item}" FontSize="65"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="helvetica-Bold" />
+                        <On Platform="Android" Value="roboto-Bold" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+
+            <ImageButton Source="shuffle.png" 
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand"
+            BackgroundColor="Transparent"
+            WidthRequest="100"
+            HeightRequest="100"
+            FlexLayout.AlignSelf="Center"
+            FlexLayout.Grow="1"
+            Clicked="Button_Clicked"
+                         
+            Aspect="AspectFit">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Scale" Value="1"/>
+                            </VisualState.Setters>
+                        </VisualState>
+
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Scale" Value="0.98"/>
+                            </VisualState.Setters>
+                        </VisualState>
+
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </ImageButton>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
